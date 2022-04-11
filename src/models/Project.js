@@ -30,4 +30,17 @@ function Project(name, budget, deadline, tags) {
 
 Project.collectionName = 'projects';
 
+Project.fromFirestore = function(snapshot, options) {
+    let data = snapshot.data(options);
+    const project = new Project(data.name, data.budget, data.deadline.seconds * 1000, data.tags);
+
+
+    // set seom things for firebase
+    // .id is already added by vuefire
+    project._id = snapshot.id;
+    project._path = snapshot.ref.path;
+
+    return project;
+}
+
 export default Project;

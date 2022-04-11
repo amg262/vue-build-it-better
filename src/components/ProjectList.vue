@@ -24,7 +24,9 @@ export default {
   },
   firestore: {
     // TODO: query firebase
-    projects: db.collection(Project.collectionName).orderBy('name')
+    projects: db.collection(Project.collectionName)
+                .where('budget', '<', 200)
+                .orderBy('budget').withConverter(Project)
   },
 }
 </script>

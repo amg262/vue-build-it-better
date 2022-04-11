@@ -6,7 +6,7 @@
     <b-card-body>
       <b>Budget: </b> ${{ project.budget }}<br>
       <b>Cost: </b> ${{ projectCost }}<br>
-      <!--      <b>Deadline: </b> {{ daysRemaining }} {{ daysRemaining === 1 ? 'day' : 'days' }}<br>-->
+      <b>Deadline: </b> {{ daysRemaining }} {{ daysRemaining === 1 ? 'day' : 'days' }}<br>
       <b>Tags: </b>
       <b-badge variant="secondary" v-for="tag in project.tags" :key="tag" class="mr-1">#{{ tag }}</b-badge>
       <br>
