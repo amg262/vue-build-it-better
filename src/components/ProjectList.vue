@@ -8,6 +8,8 @@
 
 <script>
 import ProjectCard from "./ProjectCard";
+import {db} from "@/firebase";
+import Project from "@/models/Project";
 
 export default {
   name: "ProjectList",
@@ -20,8 +22,9 @@ export default {
       projects: [],
     }
   },
-  firestore() {
+  firestore: {
     // TODO: query firebase
+    projects: db.collection(Project.collectionName).orderBy('name')
   },
 }
 </script>

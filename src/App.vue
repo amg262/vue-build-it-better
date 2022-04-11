@@ -34,7 +34,6 @@ import generator from "project-name-generator";
 import {db} from "@/firebase";
 
 
-
 export default {
   name: 'App',
   components: {
@@ -65,10 +64,10 @@ export default {
             console.log('project added', docRef);
 
             return Promise.all([
-              db.doc(docRef.path).collection('tasks').add(newTask1.toFirestore()),
-              db.doc(docRef.path).collection('tasks').add(newTask1.toFirestore()),
-              db.doc(docRef.path).collection('tasks').add(newTask1.toFirestore()),
-              db.doc(docRef.path).collection('tasks').add(newTask1.toFirestore()),
+              db.doc(docRef.path).collection(Task.collectionName).add(newTask1.toFirestore()),
+              db.doc(docRef.path).collection(Task.collectionName).add(newTask1.toFirestore()),
+              db.doc(docRef.path).collection(Task.collectionName).add(newTask1.toFirestore()),
+              db.doc(docRef.path).collection(Task.collectionName).add(newTask1.toFirestore()),
               // db.collection('projects').doc(docRef.id).collection('tasks').add(newTask1.toFirestore()),
               // db.collection('projects').doc(docRef.id).collection('tasks').add(newTask2.toFirestore()),
               // db.collection('projects').doc(docRef.id).collection('tasks').add(newTask3.toFirestore()),
