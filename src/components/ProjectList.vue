@@ -22,12 +22,44 @@ export default {
       projects: [],
     }
   },
-  firestore: {
+  // this is called when defining the component
+  // firestore: {
+  //   // TODO: query firebase
+  //   projects: db.collection(Project.collectionName)
+  //               .where('tags', 'array-contains', this.tag)
+  //               // .where('budget', '<', 200)
+  //               // .where('budget', '<', 200)
+  //               .orderBy('deadline').withConverter(Project)
+  // },
+
+  // this is called when component is created/instantiated
+  // these methods are called after the props are passed
+  firestore() {
     // TODO: query firebase
-    projects: db.collection(Project.collectionName)
-                .where('budget', '<', 200)
-                .orderBy('budget').withConverter(Project)
-  },
+    let projectRef = db.collection(Project.collectionName)
+        .orderBy('deadline').withConverter(Project)
+
+    if (this.tag) {
+      projectRef = projectRef.where('tags', 'array-contains', this.tag)
+    }
+
+    return {
+      projects: projectRef
+    }
+  }
+
+  // this is called when component is created/instantiated
+  // these methods are called after the props are passed
+  // firestore() {
+  //   // TODO: query firebase
+  //   return {
+  //     projects: db.collection(Project.collectionName)
+  //         .where('tags', 'array-contains', this.tag)
+  //         // .where('budget', '<', 200)
+  //         // .where('budget', '<', 200)
+  //         .orderBy('deadline').withConverter(Project)
+  //   }
+  // },
 }
 </script>
 

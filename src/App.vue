@@ -16,6 +16,8 @@
 
     <!--  content  -->
     <b-container>
+      <h2 class="content-heading">High Priority Tasks</h2>
+      <high-priority-tasks></high-priority-tasks>
       <h2 class="content-heading">
         Projects <span class="small">Filter: <b-form-select v-model="selectedTag"
                                                             :options="tags"></b-form-select></span>
@@ -32,11 +34,13 @@ import Project from "./models/Project";
 import Task from "./models/Task";
 import generator from "project-name-generator";
 import {db} from "@/firebase";
+import HighPriorityTasks from "@/components/HighPriorityTasks";
 
 
 export default {
   name: 'App',
   components: {
+    HighPriorityTasks,
     ProjectList
   },
   data() {
